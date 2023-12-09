@@ -4,65 +4,76 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 class LoginController implements ActionListener{
-
+	JLabel image;
+	JPanel panel;
 	JTextField usernameTField;
 	JPasswordField passTField;
 	JButton loginBtn;
 	JButton registerBtn;
+	JButton passengerBtn;
+	JButton driverBtn;
 
-	//JFrame frame = new JFrame();
 	JFrame fram = new JFrame();
 	LoginController(JFrame frame){
 
 		fram = frame;
-        JPanel panel = new JPanel();
-        panel.setBounds(0,0,500,500);
-        panel.setLayout(null);
-        panel.setOpaque(false);
-        
-        frame.add(panel);
-
-		ImageIcon image = new ImageIcon("LoginFrame.png");
-		JLabel label = new JLabel();
-		label.setBounds(0,0,500,500);
-		label.setIcon(image);
-		frame.add(label);
-		
+        	panel = new JPanel();
+        	AllView.addPanel(frame, panel);
+      
+		image = new JLabel();
+		AllView.addImage(frame, image);
+			
 		JLabel usernameLabel = new JLabel();
-		AllView.addlabel(usernameLabel, panel, "USERNAME", 290,140,200,30,11);
+		AllView.addLabel(usernameLabel, panel, "USERNAME", 290,120,200,30,11);
 
 		usernameTField = new JTextField();
-		AllView.addtextField(usernameTField, panel, 290,170,185,30,12);
+		AllView.addTextField(usernameTField, panel, 290,140,185,30,12);
 		
 		JLabel passLabel = new JLabel();
-		AllView.addlabel(passLabel, panel, "PASSWORD", 290,210,200,30,11);
+		AllView.addLabel(passLabel, panel, "PASSWORD", 290,180,200,30,11);
 
 		passTField = new JPasswordField();
-		AllView.addpassField(passTField, panel, 290,240,185,30,12);
+		AllView.addPassField(passTField, panel, 290,200,185,30,12);
 
 		loginBtn = new JButton();
-		AllView.addbutton(loginBtn, panel, "LOGIN", 310, 310, 150, 35, 12);
+		AllView.addButton(loginBtn, panel, "LOGIN", 310, 260, 150, 35, 12);
 		loginBtn.addActionListener(this);
+
 		registerBtn = new JButton();
-		AllView.addbutton(registerBtn, panel, "REGISTER", 310, 350, 150, 35, 12);
+		AllView.addButton(registerBtn, panel, "REGISTER", 310, 300, 150, 35, 12);
+		registerBtn.addActionListener(this);
 
-        JLabel bottomLabel = new JLabel();
-        AllView.addlabel(bottomLabel,panel, "If you don't have an account please approach",292,410,242,11,9);  
-        JLabel bottomsLabel = new JLabel(); 
- 		AllView.addlabel(bottomsLabel,panel, " Mr.Dwight",355,420,242,11,9);   
-
-
-		frame.setVisible(true);
 	}
 	
-	public void actionPerformed(ActionEvent e){
+	public void actionPerformed(ActionEvent event){
+		if(event.getSource()==loginBtn){
+			
+		}
+		if(event.getSource()==registerBtn){
+			driverBtn = new JButton();
+			passengerBtn = new JButton();
 
-		fram.getContentPane().removeAll();
-		fram.validate();
-		fram.repaint();
+			AllView.addButton(passengerBtn, "REGISTER AS PASSENGER", 292,360, 185, 35, 12);
+			passengerBtn.addActionListener(this);
+			panel.add(passengerBtn);
 
-		new RegisterController(fram);
-	
+			AllView.addButton(driverBtn, "REGISTER AS DRIVER", 292,400, 185, 35, 12);
+			panel.add(driverBtn);
+
+			panel.revalidate();
+			panel.repaint();
+		}
+		if(event.getSource()==passengerBtn){
+			fram.getContentPane().removeAll();
+			fram.validate();
+			fram.repaint();
+			
+			new RegisterController(fram);
+		}
+		
+
+
+
 	}
 
 }
