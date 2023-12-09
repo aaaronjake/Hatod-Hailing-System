@@ -1,4 +1,4 @@
-package grade.sheet.controller;
+package hatod;
 
 import javax.swing.*;
 import java.awt.*;
