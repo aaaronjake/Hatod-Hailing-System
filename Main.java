@@ -1,13 +1,18 @@
 package hatod;
 
+import javax.swing.*;
 import hatod.controller.*;
 
-public class Main{
+class Main{
+	public static void main(String[] args){
+		JFrame frame = new JFrame();
+		frame.setSize(500,500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(null);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 
-    public static void main(String[] args){
-
-        new LoginController();
-
-    }
-
+		new LoginController(frame);
+		frame.setVisible(true);
+	}
 }
