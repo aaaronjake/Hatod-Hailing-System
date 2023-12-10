@@ -101,9 +101,9 @@ public class AdminController implements ActionListener{
 
 		confirmBtn = new JButton();
 
-		AllView.addButton(registerBtn, panel, "REGISTER", 290,305,200,20,11
+		AllView.addButton(registerBtn, panel, "CONFIRM CREATE ADMIN", 290,305,200,20,11);
 
-		registerBtn.addActionListener(this);
+		confirmBtn.addActionListener(this);
 
 		
 
