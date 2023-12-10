@@ -22,7 +22,7 @@ public class AllView{
 
 	public static void addImage(JFrame frame, JLabel label, String nameImage){
 		ImageIcon image = new ImageIcon(nameImage);
-		label.setBounds(0,-30,500,500);
+		label.setBounds(0,0,500,500);
 		label.setIcon(image);
 		frame.add(label);
 	}

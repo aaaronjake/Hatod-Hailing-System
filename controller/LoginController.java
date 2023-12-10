@@ -52,7 +52,8 @@ public class LoginController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent event){
 		if(event.getSource()==loginBtn){
-			
+			AllView.clearFrame(frame);
+			new UsersController(frame);
 		}
 		if(event.getSource()==registerBtn){
 			driverBtn = new JButton();
@@ -69,9 +70,7 @@ public class LoginController implements ActionListener{
 			panel.repaint();
 		}
 		if(event.getSource()==passengerBtn){
-			frame.getContentPane().removeAll();
-			frame.validate();
-			frame.repaint();		
+			AllView.clearFrame(frame);	
 			new RegisterController(frame);
 		}
 	}
