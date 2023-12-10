@@ -5,10 +5,7 @@ import java.awt.*;
 
 public class AllView{
 
-	public AllView(){
-		
-
-	}
+	
 	public static void addPanel(JFrame frame, JPanel panel){
 		panel.setBounds(0,0,500,500);
         panel.setLayout(null);
@@ -23,8 +20,8 @@ public class AllView{
 		panel.add(label);
 	}
 
-	public static void addImage(JFrame frame, JLabel label){
-		ImageIcon image = new ImageIcon("LoginFrame.png");
+	public static void addImage(JFrame frame, JLabel label, String nameImage){
+		ImageIcon image = new ImageIcon(nameImage);
 		label.setBounds(0,-30,500,500);
 		label.setIcon(image);
 		frame.add(label);
@@ -53,6 +50,12 @@ public class AllView{
 		button.setText(text);
 		button.setFont(new Font("Times New Roman", Font.PLAIN, fontSize));
 		
+	}
+
+	public static void clearFrame(JFrame frame){
+		frame.getContentPane().removeAll();
+		frame.validate();
+		frame.repaint();
 	}
 
 }

@@ -14,14 +14,14 @@ public class RegisterController implements ActionListener{
 	JPasswordField passTField;
 	JButton registerBtn;
 	JButton cancelBtn;
-	JFrame fram = new JFrame();
-	public RegisterController(JFrame frame){
-		fram = frame;
+	JFrame frame = new JFrame();
+	public RegisterController(JFrame mainFrame){
+		frame = mainFrame;
         panel = new JPanel();
-        AllView.addPanel(frame, panel);
+        AllView.addPanel(mainFrame, panel);
 		
 		image = new JLabel();
-		AllView.addImage(frame, image);
+		AllView.addImage(mainFrame, image, "LoginFrame.png");
 		
 		JLabel usernameLabel = new JLabel();
 		AllView.addLabel(usernameLabel, panel, "USERNAME", 290,140,200,30,11);
@@ -49,11 +49,11 @@ public class RegisterController implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 	if(event.getSource()==cancelBtn){
 		
-		fram.getContentPane().removeAll();
-		fram.validate();
-		fram.repaint();
+		frame.getContentPane().removeAll();
+		frame.validate();
+		frame.repaint();
 
-		new LoginController(fram);
+		new LoginController(frame);
 	}
 	if(event.getSource()==registerBtn) {
             String fullName = usernameTField.getText();

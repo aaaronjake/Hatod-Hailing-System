@@ -16,16 +16,17 @@ public class LoginController implements ActionListener{
 	JButton passengerBtn;
 	JButton driverBtn;
 
-	//JFrame frame = new JFrame();
-	JFrame fram = new JFrame();
-	public LoginController(JFrame frame){
+	JFrame frame = new JFrame();
 
-		fram = frame;
-        	panel = new JPanel();
-        	AllView.addPanel(frame, panel);
+	public LoginController(JFrame mainFrame){
+
+		frame = mainFrame;
+
+        panel = new JPanel();
+        AllView.addPanel(mainFrame, panel);
       
 		image = new JLabel();
-		AllView.addImage(frame, image);
+		AllView.addImage(mainFrame, image, "LoginFrame.png");
 			
 		JLabel usernameLabel = new JLabel();
 		AllView.addLabel(usernameLabel, panel, "USERNAME", 290,120,200,30,11);
@@ -48,6 +49,7 @@ public class LoginController implements ActionListener{
 		registerBtn.addActionListener(this);
 	}
 	
+	
 	public void actionPerformed(ActionEvent event){
 		if(event.getSource()==loginBtn){
 			
@@ -67,10 +69,10 @@ public class LoginController implements ActionListener{
 			panel.repaint();
 		}
 		if(event.getSource()==passengerBtn){
-			fram.getContentPane().removeAll();
-			fram.validate();
-			fram.repaint();		
-			new RegisterController(fram);
+			frame.getContentPane().removeAll();
+			frame.validate();
+			frame.repaint();		
+			new RegisterController(frame);
 		}
 	}
 
