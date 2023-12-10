@@ -18,10 +18,11 @@ public class DriverRegisterController implements ActionListener{
 	JButton registerBtn;
 	JButton cancelBtn;
 	JFrame fram = new JFrame();
+	
 	public DriverRegisterController(JFrame frame){
 		fram = frame;
-        panel = new JPanel();
-        AllView.addPanel(frame, panel);
+        	panel = new JPanel();
+        	AllView.addPanel(frame, panel);
 		
 		image = new JLabel();
 		AllView.addImage(frame, image);
@@ -49,52 +50,45 @@ public class DriverRegisterController implements ActionListener{
 		JLabel plateNumberLabel = new JLabel();
 		AllView.addLabel(plateNumberLabel, panel, "MOTORVEHICLE PLATE", 290,305,200,20,11);
 		plateNumberTField = new JTextField();
-		AllView.addTextField(plateNumberTField, panel, 290,325,185,20,12);
-
-		
+		AllView.addTextField(plateNumberTField, panel, 290,325,185,20,12);	
 
 		registerBtn = new JButton();
 		AllView.addButton(registerBtn, panel, "REGISTER", 380, 360, 100, 35, 12);
 		registerBtn.addActionListener(this);
-
+		
 		cancelBtn = new JButton();
 		AllView.addButton(cancelBtn, panel, "CANCEL", 285, 360, 90, 35, 12);
-		cancelBtn.addActionListener(this);  
-		
+		cancelBtn.addActionListener(this);  	
 	}
-
-
 	public void actionPerformed(ActionEvent event){
-	if(event.getSource()==cancelBtn){
-		
-		fram.getContentPane().removeAll();
-		fram.validate();
-		fram.repaint();
-
-		new LoginController(fram);
-	}
-	if(event.getSource()==registerBtn) {
-            String fullName = usernameTField.getText();
-            // String emailAddress = emailAddressTextField.getText();
-            char[] passwordChars = passTField.getPassword();
-            String password = new String(passwordChars);
-
-            RegisterModel registerModel = new RegisterModel();
-
-            boolean registrationSuccessful = registerModel.registerUser(fullName, password);
-
-            if (registrationSuccessful) {
-                usernameTField.setText("");
-                // emailAddressTextField.setText("");
-                passTField.setText("");
-
-                
-                JOptionPane.showMessageDialog(panel, "REGISTERED SUCCESSFULLY");
-            } else {
-                JOptionPane.showMessageDialog(panel, "Registration Failed! Invalid input or username already exists");
-            }
-        }
+		if(event.getSource()==cancelBtn){
+			fram.getContentPane().removeAll();
+			fram.validate();
+			fram.repaint();
+			new LoginController(fram);
+		}
+		if(event.getSource()==registerBtn) {
+	            String fullName = usernameTField.getText();
+	            // String emailAddress = emailAddressTextField.getText();
+	            char[] passwordChars = passTField.getPassword();
+	            String password = new String(passwordChars);
+	
+	            RegisterModel registerModel = new RegisterModel();
+	
+	            boolean registrationSuccessful = registerModel.registerUser(fullName, password);
+	
+	            if (registrationSuccessful) {
+	                usernameTField.setText("");
+	                // emailAddressTextField.setText("");
+	                passTField.setText("");
+	
+	                
+	                JOptionPane.showMessageDialog(panel, "REGISTERED SUCCESSFULLY");
+	            } else {
+	                JOptionPane.showMessageDialog(panel, "Registration Failed! Invalid input or username already exists");
+	            }
+	        }
+	
 	}
 
 }
-
