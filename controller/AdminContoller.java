@@ -105,6 +105,27 @@ public class AdminController implements ActionListener{
 
 		confirmBtn.addActionListener(this);
 
+
+		logoutBtn = new JButton();
+
+		AllView.addButton(logoutBtn, panel, "LOG OUT", 126,470,200,20,11);
+
+		logoutBtn.addActionListener(this);
+
+
+		activebookingBtn = new JButton();
+
+		AllView.addButton(activebookingBtn, panel, "ACTIVE BOOKING", 251,470,200,20,11);
+
+		activebookingBtn.addActionListener(this);
+
+
+		createadminBtn = new JButton();
+
+		AllView.addButton(createadminBtn, panel, "CREATE ADMIN", 376,470,200,20,11);
+
+		createadminBtn.addActionListener(this);
+
 		
 
 
@@ -174,4 +195,4 @@ public class AdminController implements ActionListener{
 
 }
 
-    
+
