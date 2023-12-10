@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class UsersController{
+public class UsersController implements ActionListener{
 
     JPanel panel;
     JLabel image;
@@ -29,26 +29,31 @@ public class UsersController{
 	AllView.addImage(mainFrame, image, "UserFrame1.png");
 
     JLabel currentDestination = new JLabel();
-	AllView.addLabel(currentDestination, panel, "PICK UP PLACE:", 138,36,206,11,10); 
+	AllView.addLabel(currentDestination, panel, "PICK UP PLACE:", 135,25,206,11,10); 
 
     fromDestination = new JTextField();
-    AllView.addTextField(fromDestination, panel, 138,36,206,20,11);
+    AllView.addTextField(fromDestination, panel, 133,35,220,20,11);
 
     JLabel assignedDestination = new JLabel();
-    AllView.addLabel(assignedDestination, panel, "DESTINATION:", 138,76,219,11,10);
+    AllView.addLabel(assignedDestination, panel, "DESTINATION:", 135,63,219,11,10);
 
     toDestination = new JTextField();
-    AllView.addTextField(toDestination, panel, 138,76,219,20,11);
+    AllView.addTextField(toDestination, panel, 133, 73,220,20,11);
 
     JLabel hatodCredits = new JLabel();
-    AllView.addLabel(hatodCredits, panel, "HATOD CREDITS: ", 19,386,70,13, 13);
+    AllView.addLabel(hatodCredits, panel, "HATOD CREDITS: ", 22,364,200,13, 11);
 
     bookRide = new JButton();
-    AllView.addButton(bookRide, panel, "BOOK A RIDE", 8, 452, 179, 25, 12);
-
+    AllView.addButton(bookRide, panel, "BOOK A RIDE", 11, 425, 179, 25, 12);
 
     }
 
+
+    public void actionPerformed(ActionEvent event){
+        if(event.getSource() == bookRide){
+            
+        }
+    }
 
 
 }
