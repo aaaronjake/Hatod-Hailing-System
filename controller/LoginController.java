@@ -22,26 +22,27 @@ public class LoginController implements ActionListener{
 	public LoginController(JFrame frame){
 
 		fram = frame;
-        panel = new JPanel();
-        AllView.addPanel(frame, panel);
+        	panel = new JPanel();
+       		AllView.addPanel(frame, panel);
       
 		image = new JLabel();
 		AllView.addImage(frame, image, "1.png");
 			
 		JLabel usernameLabel = new JLabel();
-		AllView.addLabel(usernameLabel, panel, "USERNAME", 271,110,200,30,11);
+		AllView.addLabel(usernameLabel, panel, "USERNAME", 271,110,200,25,11);
 
 		usernameTField = new JTextField("USERNAME");
-		AllView.addTextField(usernameTField, panel, 271,130,185,30,12, "USERNAME");
-		
+		AllView.addTextField(usernameTField, panel, 271,130,185,25,12, "USERNAME");
+	
 		JLabel passLabel = new JLabel();
-		AllView.addLabel(passLabel, panel, "PASSWORD", 271,170,200,30,11);
+		AllView.addLabel(passLabel, panel, "PASSWORD", 271,170,200,25,11);
 
 		passTField = new JPasswordField();
-		AllView.addPassField(passTField, panel, 271,190,185,30,12);
+		AllView.addPassField(passTField, panel, 271,190,185,25,12);
 
 		loginBtn = new JButton();
 		AllView.addButton(loginBtn, panel, "LOGIN", 291, 260, 150, 35, 12);
+		
 		loginBtn.addActionListener(this);
 
 		registerBtn = new JButton();
@@ -54,11 +55,10 @@ public class LoginController implements ActionListener{
 		if(event.getSource()==loginBtn){
 			String fullName = usernameTField.getText();
 			char[] passwordChars = passTField.getPassword();
-            String password = new String(passwordChars);
+            		String password = new String(passwordChars);
 
-           	LoginModel loginModel = new LoginModel();
-
-           	boolean loginSuccessful = loginModel.successfulLogin(fullName, password);
+           		LoginModel loginModel = new LoginModel();
+           		boolean loginSuccessful = loginModel.successfulLogin(fullName, password);
 
            	if(loginSuccessful){
 
@@ -72,30 +72,26 @@ public class LoginController implements ActionListener{
 		if(event.getSource()==registerBtn){
 			
 			passengerBtn = new JButton();
-			AllView.addButton(passengerBtn, "REGISTER AS PASSENGER", 271,360, 185, 35, 12);
+			AllView.addButton(passengerBtn, panel, "REGISTER AS PASSENGER", 271,360, 185, 35, 12);
 			passengerBtn.addActionListener(this);
-			panel.add(passengerBtn);
 			
 			driverBtn = new JButton();
-			AllView.addButton(driverBtn, "REGISTER AS DRIVER", 271,400, 185, 35, 12);
+			AllView.addButton(driverBtn, panel, "REGISTER AS DRIVER", 271,400, 185, 35, 12);
 			driverBtn.addActionListener(this);
-			panel.add(driverBtn);
 
 			panel.revalidate();
 			panel.repaint();
 		}
 		if(event.getSource()==passengerBtn){
-			AllView.removeFrame(fram);
 			
+			AllView.removeFrame(fram);
 			new RegisterController(fram);
 		}
 		if(event.getSource()==driverBtn){
-			AllView.removeFrame(fram);
 			
+			AllView.removeFrame(fram);
 			new DriverRegisterController(fram);
 		}
-
-
 	}
 
 }
