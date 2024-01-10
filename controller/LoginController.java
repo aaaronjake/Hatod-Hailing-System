@@ -26,7 +26,7 @@ public class LoginController implements ActionListener{
        		AllView.addPanel(frame, panel);
       
 		image = new JLabel();
-		AllView.addImage(frame, image, "1.png");
+		AllView.addImage(frame, image, "LoginFrame.png");
 			
 		JLabel usernameLabel = new JLabel();
 		AllView.addLabel(usernameLabel, panel, "USERNAME", 271,110,200,25,11);

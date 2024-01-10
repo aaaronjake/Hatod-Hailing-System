@@ -24,7 +24,7 @@ public class RegisterController implements ActionListener{
         	AllView.addPanel(frame, panel);
 		
 		image = new JLabel();
-		AllView.addImage(frame, image, "Hatod New.png");
+		AllView.addImage(frame, image, "RiderPassengerRegisterFrame.png");
 		
 		JLabel emailLabel = new JLabel();
 		AllView.addLabel(emailLabel, panel, "EMAIL", 271,125,200,25,11);

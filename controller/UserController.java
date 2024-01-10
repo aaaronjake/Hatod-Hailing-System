@@ -26,7 +26,7 @@ public class UserController implements ActionListener{
         AllView.addPanel(frame, panel);
       
 		image = new JLabel();
-		AllView.addImage(frame, image, "2.png");
+		AllView.addImage(frame, image, "UserRiderFrame.png");
 
 		motorcycleBtn = new JButton();
 		AllView.addButton(motorcycleBtn, panel, "MOTORCYCLE", 30, 345, 125, 25, 12, 0xE9AD6C);
