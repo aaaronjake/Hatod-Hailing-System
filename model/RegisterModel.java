@@ -1,4 +1,4 @@
-package hatod;
+package hatod.model;
 
 import java.io.*;
 import java.nio.*;
