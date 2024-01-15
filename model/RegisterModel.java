@@ -4,7 +4,8 @@ import java.io.*;
 import java.nio.*;
 import java.nio.file.*;
 import java.util.*;
-class RegisterModel {
+
+public class RegisterModel {
 
     private static final String FILE_PATH = "user.dat";
 

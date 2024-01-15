@@ -69,13 +69,12 @@ public class DriverRegisterController implements ActionListener{
 		}
 		if(event.getSource()==registerBtn) {
 	            String fullName = usernameTField.getText();
-	            String emailAddress = emailTField.getText();
 	            char[] passwordChars = passTField.getPassword();
 	            String password = new String(passwordChars);
 	
 	            RegisterModel registerModel = new RegisterModel();
 	
-	            boolean registrationSuccessful = registerModel.registerUser(fullName, password, emailAddress);
+	            boolean registrationSuccessful = registerModel.registerUser(fullName, password);
 	
 	            if (registrationSuccessful) {
 	                usernameTField.setText("");
