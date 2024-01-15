@@ -24,7 +24,7 @@ public class DriverRegisterController implements ActionListener{
         	AllView.addPanel(frame, panel);
 		
 		image = new JLabel();
-		AllView.addImage(frame, image, "RiderPassengerRegisterFrame.png");
+		AllView.addImage(frame, image, "Hatod New.png");
 
 		JLabel emailLabel = new JLabel();
 		AllView.addLabel(emailLabel, panel, "EMAIL", 271,110,200,20,11);
