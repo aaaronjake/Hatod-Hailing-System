@@ -7,26 +7,28 @@ import hatod.view.*;
 import hatod.model.*;
 
 public class UserController implements ActionListener{
-	JLabel image;
-	JLabel costLabel;
-	JPanel panel;
-	JTextField pickUpField;
-	JTextField dropOffField;
-	JButton motorcycleBtn;
-	JButton taxiBtn;
-	JButton bikeBtn;
-	JButton bookBtn;
 
-	//JFrame frame = new JFrame();
-	JFrame fram = new JFrame();
-	public UserController(JFrame frame){
+		JLabel image;
+		JLabel costLabel;
+		JPanel panel;
+		JTextField pickUpField;
+		JTextField dropOffField;
+		JButton motorcycleBtn;
+		JButton taxiBtn;
+		JButton bikeBtn;
+		JButton bookBtn;
 
-		fram = frame;
+		JFrame frame = new JFrame();
+
+	public UserController(JFrame mainFrame){
+
+		frame = mainFrame;
+
         panel = new JPanel();
-        AllView.addPanel(frame, panel);
+        AllView.addPanel(mainFrame, panel);
       
 		image = new JLabel();
-		AllView.addImage(frame, image, "UserRiderFrame.png");
+		AllView.addImage(mainFrame, image, "UserRiderFrame.png");
 
 		motorcycleBtn = new JButton();
 		AllView.addButton(motorcycleBtn, panel, "MOTORCYCLE", 30, 345, 125, 25, 12, 0xE9AD6C);
@@ -57,20 +59,28 @@ public class UserController implements ActionListener{
 		bookBtn.addActionListener(this);
 	}
 	
+
 	public void actionPerformed(ActionEvent event){
+
 		if(event.getSource()==motorcycleBtn){
 			costLabel.setText("Booking Cost: 100");
 		}
+
+		
 		if(event.getSource()==taxiBtn){
 			costLabel.setText("Booking Cost: 150");
 		}
+
+
 		if(event.getSource()==bikeBtn){
 			costLabel.setText("Booking Cost: 200");
 		}
+
+		
 		if(event.getSource()==bookBtn){
 			
-			AllView.removeFrame(fram);
-      		new UserStage2Controller(fram);
+			AllView.removeFrame(frame);
+      		new UserStage2Controller(frame);
 		}
 	}
 }

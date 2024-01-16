@@ -8,23 +8,28 @@ import hatod.model.*;
 
 public class DriverRegisterController implements ActionListener{
 
-	JLabel image;
-	JPanel panel;
-	JTextField usernameTField;
-	JTextField emailTField;
-	JTextField numberTField;
-	JTextField plateNumberTField;
-	JPasswordField passTField;
-	JButton registerBtn;
-	JButton cancelBtn;
-	JFrame fram = new JFrame();
-	public DriverRegisterController(JFrame frame){
-		fram = frame;
-        	panel = new JPanel();
-        	AllView.addPanel(frame, panel);
+		JLabel image;
+		JPanel panel;
+		JTextField usernameTField;
+		JTextField emailTField;
+		JTextField numberTField;
+		JTextField plateNumberTField;
+		JPasswordField passTField;
+		JButton registerBtn;
+		JButton cancelBtn;
+
+		JFrame frame = new JFrame();
+
+		
+	public DriverRegisterController(JFrame mainFrame){
+
+		frame = mainFrame;
+
+        panel = new JPanel();
+        AllView.addPanel(mainFrame, panel);
 		
 		image = new JLabel();
-		AllView.addImage(frame, image, "RiderPassengerRegisterFrame.png");
+		AllView.addImage(mainFrame, image, "RiderPassengerRegisterFrame.png");
 
 		JLabel emailLabel = new JLabel();
 		AllView.addLabel(emailLabel, panel, "EMAIL", 271,110,200,20,11);
@@ -61,12 +66,16 @@ public class DriverRegisterController implements ActionListener{
 		
 	}
 	
+
 	public void actionPerformed(ActionEvent event){
+
 		if(event.getSource()==cancelBtn){
-			AllView.removeFrame(fram);
+			AllView.removeFrame(frame);
 	
-			new LoginController(fram);
+			new LoginController(frame);
 		}
+
+
 		if(event.getSource()==registerBtn) {
 	            String fullName = usernameTField.getText();
 	            char[] passwordChars = passTField.getPassword();

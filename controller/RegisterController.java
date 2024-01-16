@@ -9,22 +9,27 @@ import hatod.model.*;
 
 public class RegisterController implements ActionListener{
 
-	JLabel image;
-	JPanel panel;
-	JTextField emailTField;
-	JTextField usernameTField;
-	JTextField numberTField;
-	JPasswordField passTField;
-	JButton registerBtn;
-	JButton cancelBtn;
-	JFrame fram = new JFrame();
-	public RegisterController(JFrame frame){
-		fram = frame;
-        	panel = new JPanel();
-        	AllView.addPanel(frame, panel);
+		JLabel image;
+		JPanel panel;
+		JTextField emailTField;
+		JTextField usernameTField;
+		JTextField numberTField;
+		JPasswordField passTField;
+		JButton registerBtn;
+		JButton cancelBtn;
+
+		JFrame frame = new JFrame();
+
+
+	public RegisterController(JFrame mainFrame){
+
+		frame = mainFrame;
+
+        panel = new JPanel();
+        AllView.addPanel(mainFrame, panel);
 		
 		image = new JLabel();
-		AllView.addImage(frame, image, "RiderPassengerRegisterFrame.png");
+		AllView.addImage(mainFrame, image, "RiderPassengerRegisterFrame.png");
 		
 		JLabel emailLabel = new JLabel();
 		AllView.addLabel(emailLabel, panel, "EMAIL", 271,125,200,25,11);
@@ -56,12 +61,16 @@ public class RegisterController implements ActionListener{
 		cancelBtn.addActionListener(this); 
 	}
 	
+
 	public void actionPerformed(ActionEvent event){
+
 		if(event.getSource()==cancelBtn){
 			
-			AllView.removeFrame(fram);
-			new LoginController(fram);
+			AllView.removeFrame(frame);
+			new LoginController(frame);
 		}
+
+		
 		if(event.getSource()==registerBtn) {
 	            String fullName = usernameTField.getText();
 	            char[] passwordChars = passTField.getPassword();

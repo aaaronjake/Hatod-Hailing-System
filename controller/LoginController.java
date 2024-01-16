@@ -3,30 +3,33 @@ package hatod.controller;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 import hatod.view.*;
 import hatod.model.*;
 
 public class LoginController implements ActionListener{
-	JLabel image;
-	JPanel panel;
-	
-	JTextField usernameTField;
-	JPasswordField passTField;
-	JButton loginBtn;
-	JButton registerBtn;
-	JButton passengerBtn;
-	JButton driverBtn;
 
-	//JFrame frame = new JFrame();
-	JFrame fram = new JFrame();
-	public LoginController(JFrame frame){
+		JLabel image;
+		JPanel panel;
+		JTextField usernameTField;
+		JPasswordField passTField;
+		JButton loginBtn;
+		JButton registerBtn;
+		JButton passengerBtn;
+		JButton driverBtn;
 
-		fram = frame;
-        	panel = new JPanel();
-       		AllView.addPanel(frame, panel);
+		JFrame frame = new JFrame();
+
+
+	public LoginController(JFrame mainFrame){
+
+		frame = mainFrame;
+        	
+		panel = new JPanel();
+       	AllView.addPanel(mainFrame, panel);
       
 		image = new JLabel();
-		AllView.addImage(frame, image, "LoginFrame.png");
+		AllView.addImage(mainFrame, image, "LoginFrame.png");
 			
 		JLabel usernameLabel = new JLabel();
 		AllView.addLabel(usernameLabel, panel, "USERNAME", 271,110,200,25,11);
@@ -52,25 +55,28 @@ public class LoginController implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent event){
+
 		if(event.getSource()==loginBtn){
 			String fullName = usernameTField.getText();
 			char[] passwordChars = passTField.getPassword();
-            		String password = new String(passwordChars);
+            String password = new String(passwordChars);
 
-           		LoginModel loginModel = new LoginModel();
-           		boolean loginSuccessful = loginModel.successfulLogin(fullName, password);
+           	LoginModel loginModel = new LoginModel();
+           	boolean loginSuccessful = loginModel.successfulLogin(fullName, password);
+
 
            	if(loginSuccessful){
-
-           		AllView.removeFrame(fram);
-           		new UserController(fram);
+           		AllView.removeFrame(frame);
+				//butangan ni dire og if (user ba) (rider ba) (admin ba)
+           		new UserController(frame);
            		JOptionPane.showMessageDialog(panel, "REGISTERED SUCCESSFULLY");
            	} else{
            		JOptionPane.showMessageDialog(panel, "Registration Failed! Invalid input or username already exists");
            	}
 		}
+
+
 		if(event.getSource()==registerBtn){
-			
 			passengerBtn = new JButton();
 			AllView.addButton(passengerBtn, panel, "REGISTER AS PASSENGER", 271,360, 185, 35, 12);
 			passengerBtn.addActionListener(this);
@@ -82,15 +88,18 @@ public class LoginController implements ActionListener{
 			panel.revalidate();
 			panel.repaint();
 		}
+
+
 		if(event.getSource()==passengerBtn){
-			
-			AllView.removeFrame(fram);
-			new RegisterController(fram);
+			AllView.removeFrame(frame);
+			new RegisterController(frame);
 		}
+
+
 		if(event.getSource()==driverBtn){
 			
-			AllView.removeFrame(fram);
-			new DriverRegisterController(fram);
+			AllView.removeFrame(frame);
+			new DriverRegisterController(frame);
 		}
 	}
 

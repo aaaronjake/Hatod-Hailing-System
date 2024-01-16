@@ -1,6 +1,5 @@
 package hatod.view;
 
-import javax.swing.BorderFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -42,7 +41,7 @@ public class AllView{
 		textField.setBounds(x,y,width,height);
 		textField.setFont(new Font("Times New Roman", Font.PLAIN, fontSize));
 		textField.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-		//textField.setBackground(new Color(0x797E83));
+		textField.setBackground(new Color(0xEB8B48));
 		
 		textField.addFocusListener(new FocusListener(){
 			public void focusGained(FocusEvent event){
@@ -61,7 +60,7 @@ public class AllView{
 		textField.setBounds(x,y,width,height);
 		textField.setFont(new Font("Times New Roman", Font.PLAIN, fontSize));
 		textField.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-		//textField.setBackground(new Color(0x797E83));
+		textField.setBackground(new Color(0xEB8B48));
 		panel.add(textField);
 	}
 
@@ -71,6 +70,7 @@ public class AllView{
 		passField.setBorder(BorderFactory.createLineBorder(Color.RED));
 		passField.setToolTipText("Password must contain at least 8 characters");
 		passField.setBorder(BorderFactory.createLoweredBevelBorder());
+		passField.setBackground(new Color(0xEB8B48));
 		panel.add(passField);
 	}
 
@@ -78,8 +78,8 @@ public class AllView{
 		button.setBounds(x,y,width,height);
 		button.setText(text);
 		button.setFont(new Font("Inter", Font.BOLD, fontSize));
-		button.setBackground(new Color(0x503830));
-		button.setForeground(new Color(0x000000));
+		//button.setBackground(new Color(0x503830));
+		//button.setForeground(new Color(0x000000));
 		button.setFocusPainted(false);
 		button.setBorder(BorderFactory.createEmptyBorder());
 		panel.add(button);
@@ -88,8 +88,8 @@ public class AllView{
 		button.setBounds(x,y,width,height);
 		button.setText(text);
 		button.setFont(new Font("Inter", Font.BOLD, fontSize));
-		button.setBackground(new Color(color));
-		button.setForeground(new Color(0x000000));
+		//button.setBackground(new Color(color));
+		//button.setForeground(new Color(0x000000));
 		button.setFocusPainted(false);
 		button.setBorder(BorderFactory.createEmptyBorder());
 		panel.add(button);
